@@ -1,4 +1,3 @@
-# React + Vite
 
 <div align='center'>
 <img src='./logo_readme.png'>
