@@ -6,8 +6,7 @@ import { Button } from "../Form/Button"
 
 export const LoginForm = ()=>{
 
-    const [userName, setUserName]= useState('')
-    const [password, setPassword]= useState('')
+    
 
     const handleSub = (event)=>{
         event.preventDefault();
@@ -16,7 +15,7 @@ export const LoginForm = ()=>{
             headers:{
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({userName, password}),
+            body: JSON.stringify(),
         })
         .then((res)=>{
             console.log(res);
