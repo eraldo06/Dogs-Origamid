@@ -7,13 +7,16 @@ import { useForm } from "../../Hooks/useForm"
 
 export const LoginForm = ()=>{
 
-    const username = useForm('email');
+    const username = useForm();
     const password = useForm();
    
 
     const handleSub = (event)=>{
         event.preventDefault();
-        fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token',{
+
+        if(username.validate() && password.validate()){
+
+            fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token',{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -27,13 +30,16 @@ export const LoginForm = ()=>{
         .then((json)=>{
             console.log(json);
         })
+        }
+
+        
     }
 
     return(
         <section>
             <h1>Login</h1>
             <form action="" onSubmit={handleSub}>
-                <Input label='Usuário' type='text' name='userName' {...username}/>
+                <Input label='Usuário' type='text' name='username' {...username}/>
                 <Input label='Senha' type='password' name='password' {...password}/>
             
             <Button>Entrar</Button>
